@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+void merge(int array[], int left, int mid,int right)
+{
+    int m = mid - left + 1;
+    int n = right - mid;
+
+    int *leftArray = new int[m],
+         *rightArray = new int[n];
+
+    for (int i = 0; i < m; i++)
+        leftArray[i] = array[left + i];
+    for (int j = 0; j < n; j++)
+        rightArray[j] = array[mid + 1 + j];
+ 
+    int i = 0, j = 0; 
+    int k= left;
+    while (i < m && j < n) {
+        if (leftArray[i] <= rightArray[j])
+		{
+            array[k] = leftArray[i];
+            i++;
+        }
+        else
+		{
+            array[k]= rightArray[j];
+            j++;
+        }
+        k++;
+    }
+    while (i < m) {
+        array[k]= leftArray[i];
+        i++;
+        k++;
+    }
+    while (j< n) {
+        array[k]= rightArray[j];
+        j++;
+        k++;
+    }
+}
+ 
+
+void mergeSort(int array[], int begin, int end)
+{
+    if (begin >= end)
+        return; 
+ 
+    int mid = begin + (end - begin) / 2;
+    mergeSort(array, begin, mid);
+    mergeSort(array, mid + 1, end);
+    merge(array, begin, mid, end);
+}
+ 
+
+void printArray(int A[], int size)
+{
+    for (int i = 0; i < size; i++)
+        cout << A[i] << " ";
+}
+ 
+int main()
+{
+    int arr[] = { 12, 11, 13, 5, 6, 7 };
+    int arr_size = sizeof(arr) / sizeof(arr[0]);
+ 
+    cout << "Given array is \n";
+    printArray(arr, arr_size);
+ 
+    mergeSort(arr, 0, arr_size - 1);
+ 
+    cout << "\nSorted array is \n";
+    printArray(arr, arr_size);
+    return 0;
+}
