@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+int* rev(int *arr,int l,int r)
+{
+	int temp;
+	while(l<r)
+	{
+		temp=arr[l];
+		arr[l]=arr[r];
+		arr[r]=temp;
+		l++;
+		r--;
+	}
+	return arr;
+}
+int main()
+{
+	int n;
+	cin>>n; //5
+	int arr[n];
+	for(int i=0;i<n;i++)
+	{
+		cin>>arr[i];
+	}
+	int k; //3
+	cout<<"Enter Value of k";
+	cin>>k;
+	k=k%n;
+	rev(arr,0,n-k-1);
+	rev(arr,n-k,n-1);
+	rev(arr,0,n-1);
+	for(int i=0;i<n;i++)
+	{
+		cout<<arr[i]<<" ";
+	}
+}
