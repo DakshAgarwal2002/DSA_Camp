@@ -1,0 +1,75 @@
+//Strcmp Implementation
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+char name1[70];
+	gets(name1);
+	char name2[70];
+	gets(name2);
+	int i=0,j=0;
+	while(*(name1+i) != '\0' && *(name2+j) !=0)
+	{
+		if(*(name1+i)==*(name2+j))
+		{
+			i++;
+			j++;
+		}
+		else if(*(name1+i)>*(name2+j))
+		{
+			cout<<"String 1 is Bigger"<<endl;
+			return 0;
+		}
+		else
+		{
+			cout<<"String 2 is Bigger"<<endl;
+			return 0;
+		}
+	}
+	if(*(name1+i) == '\0' && *(name2+j) =='\0')
+	{
+		cout<<"Both Arrays are equal"<<endl;
+	}
+	else if(*(name1+i) == '\0')
+	{
+		cout<<"String 2 is Bigger"<<endl;
+	}
+	else
+	{
+		cout<<"String 1 is Bigger"<<endl;
+	}
+}
+
+//Strncmp implementation
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+char name1[70];
+	gets(name1);
+	char name2[70];
+	gets(name2);
+	int i=0,j=0;
+	int k;
+	cin>>k;
+	for(int c=0;c<k;c++)
+	{
+		if(*(name1+i)==*(name2+j))
+		{
+			i++;
+			j++;
+		}
+		else if(*(name1+i)>*(name2+j))
+		{
+			cout<<"String 1 is Bigger"<<endl;
+			return 0;
+		}
+		else
+		{
+			cout<<"String 2 is Bigger"<<endl;
+			return 0;
+		}
+	}
+		cout<<"Both Arrays are equal"<<endl;
+		return 0;
+}
