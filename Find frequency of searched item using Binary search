@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n; //5
+	int arr[n];
+	for(int i=0;i<n;i++)
+	{
+		cin>>arr[i];
+	}
+	int elm;
+	cout<<"Enter Element:";
+	cin>>elm;
+	int l=0,r=n-1,flag=0;
+	int count=0;
+	while(l<=r)
+	{
+		int mid=(l+r)/2;
+		if(elm==arr[mid])
+		{
+			count++;
+			flag=1;
+			int left_count=mid-1,right_count=mid+1;
+			while(arr[left_count]==arr[mid])
+			{
+				count++;
+				left_count--;
+			}
+			while(arr[right_count]==arr[mid])
+			{
+				count++;
+				right_count++;
+			}
+			
+			break;
+		}
+		else if(elm<arr[mid])
+		{
+			r=mid;
+		}
+		else
+		{
+			l=mid+1;
+		}
+	}
+	if(flag==0)
+	{
+		cout<<"Element not found";
+	}
+	else
+	cout<<count;
+	
+}
