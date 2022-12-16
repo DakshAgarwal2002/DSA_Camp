@@ -1,0 +1,86 @@
+//Copy String
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	char name[70];
+	gets(name);
+	string newarr="";
+	int i=0;
+	while(*(name+i) != '\0')
+	{
+		newarr=newarr+*(name+i);
+		i++;
+	}
+	cout<<newarr;
+}
+
+//String Length
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	char name[70];
+	gets(name); // Input Name [ \0 is automatocally inserted at end]
+	//string str="MyNameIsDaksh";
+	//const char* st = str.c_str();// Function to convert string to char array
+	int i=0;
+	while(*(name+i) != '\0')
+	{
+		i++;
+	}
+	cout<<i;
+}
+
+//Reverse String
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	char name[70];
+	gets(name);
+	string newarr="";
+	int i=0;
+	while(*(name+i) != '\0')
+	{
+		i++;
+	}
+	int len=i;
+	i=0;
+	while(*(name+i) != '\0')
+	{
+		newarr=newarr+*(name+len-i-1);
+		i++;
+	}
+	cout<<newarr;
+}
+
+//Concatinate String
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	char name1[70];
+	gets(name1);
+	char name2[70];
+	gets(name2);
+	int i=0;
+	while(*(name1+i) != '\0')
+	{
+		i++;
+	}
+	int len=i;
+	int j=0;
+	while(*(name2+j) != '\0')
+	{
+		*(name1+len+j)=*(name2+j);
+		j++;
+	}
+	*(name1+len+j)='\0';
+	int k=0;
+	while(*(name1+k) != '\0')
+	{
+		cout<<*(name1+k);
+		k++;
+	}
+}
