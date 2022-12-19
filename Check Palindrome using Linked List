@@ -1,0 +1,72 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct Node
+{
+	char data;
+	struct Node* next;
+	Node(int x)
+	{
+		data=x;
+		next=NULL;
+	}
+};
+
+int main()
+{
+	string s,s2;
+	struct Node *head=NULL;
+	int n=7;
+	
+	//Insert Element in Linked List
+	for(int i=0;i<n;i++)
+	{
+		char x;
+		cout<<"Enter data"<<endl;
+		cin>>x;
+		s=s+x;
+		Node *ptr=head;
+       Node *end=new Node(x);
+       end->data=x;
+       end->next=NULL;
+       if(ptr==NULL)
+      {
+          ptr=end;
+          head=end;
+      }
+      else
+      {
+      	while(ptr->next!=NULL)
+       {
+           ptr=ptr->next;
+       }
+       ptr->next=end;
+	  }
+	}
+
+	Node* ptr1=head->next;
+    Node* ptr2=head;
+    Node* ptr3=head; 
+    while(ptr3->next!=NULL)
+    {
+        ptr3->next=ptr1->next;
+        ptr1->next=ptr2;
+        ptr2=ptr1;
+        ptr1=ptr3->next;
+    }
+	head=ptr2;
+	//Print Odd and even	
+	while(head !=NULL)
+	{
+		s2=s2+head->data;
+		cout<<head->data<<"  ";
+		head=head->next;
+	}
+	cout<<endl;
+	if(s==s2)
+	cout<<"String is palindrome"<<endl;
+	else
+	cout<<"String is not palindrome"<<endl;
+	
+
+	
+}
