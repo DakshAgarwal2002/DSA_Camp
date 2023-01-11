@@ -1,0 +1,47 @@
+class Solution{
+  public:
+    //Function to check whether the list is palindrome.
+    bool isPalindrome(Node *head)
+    {
+        //Your code here
+        int n=0;
+        Node* ptr=head;
+        Node* mid=head;
+        while(ptr!=NULL)
+        {
+            n++;
+            ptr=ptr->next;
+        }
+        if(n==1)
+        return true;
+        // cout<<n;
+        if(n%2==1)
+        for(int i=0;i<=n/2;i++)
+        {
+            mid=mid->next;
+        }
+        else
+        for(int i=1;i<=n/2;i++)
+        {
+            mid=mid->next;
+        }
+        Node* ptr1=mid->next;
+        Node* ptr2=mid;
+        while(mid->next!=NULL)
+        {
+            mid->next=ptr1->next;
+            ptr1->next=ptr2;
+            ptr2=ptr1;
+            ptr1=mid->next;
+        }
+        for(int i=0;i<n/2;i++)
+        {
+            if(head->data!=ptr2->data)
+            return false;
+            head=head->next;
+            ptr2=ptr2->next;
+        }
+        return true;
+        
+    }
+};
