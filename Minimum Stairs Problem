@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+// function to find the minimum cost
+// to reach N-th floor
+int minimumCost(int cost[], int n)
+{
+    int dp1 = 0, dp2 = 0;
+ 
+    // traverse till N-th stair
+    for (int i = 0; i < n; i++) {
+        int dp0 = cost[i] + min(dp1, dp2);
+ 
+        // update the last two stairs value
+        dp2 = dp1;
+        dp1 = dp0;
+    }
+  //dp2 gives the cost if started climbing from index 1 and dp1 from index 0
+    return  min(dp2,dp1);
+}
+// Driver Code
+int main()
+{
+    int a[] = { 2, 5, 3, 1, 7, 3, 4 };
+    int n = sizeof(a) / sizeof(a[0]);
+    cout << minimumCost(a, n);
+    return 0;
+}
